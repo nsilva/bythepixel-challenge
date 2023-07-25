@@ -13,6 +13,7 @@ class OpenWeatherMapAPITest extends TestCase
         $params = array(
             'lat' => '33.44',
             'lon' => '-94.04',
+            'units' => 'imperial'
         );
 
         $response = $openWeatherMap->getRequest($endpoint, $params);
@@ -71,7 +72,5 @@ class OpenWeatherMapAPITest extends TestCase
         $this->assertArrayHasKey('country', $response[0]);
         $this->assertArrayHasKey('state', $response[0]);
         $this->assertContains('City of Westminster', $response[0]);
-
-        var_dump($response);
     }
 }

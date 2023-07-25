@@ -39,4 +39,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The weather
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function weather()
+    {
+        return $this->hasOne(Weather::class);
+    }
 }
