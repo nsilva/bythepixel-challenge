@@ -4,7 +4,9 @@ RUN apt-get update
 
 RUN apt-get install -y \
     pkg-config  \
-    libzip-dev
+    libzip-dev \
+    cron \
+    nano
 
 RUN docker-php-ext-install \
     mysqli \
@@ -20,3 +22,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN a2enmod rewrite
 RUN service apache2 restart
+
+ENTRYPOINT ./start.sh
