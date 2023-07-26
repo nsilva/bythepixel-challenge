@@ -15,7 +15,6 @@ class Weather extends Model
         'description',
         'temp',
         'feels_like',
-        'feels_like',
         'temp_max',
         'temp_min',
         'humidity',
@@ -24,9 +23,13 @@ class Weather extends Model
         'clouds',
         'rain',
         'snow',
-        'snow',
         'country',
         'city',
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
     ];
 
     /**

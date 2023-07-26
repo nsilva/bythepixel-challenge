@@ -17,7 +17,7 @@ cp crontab/cron /etc/cron.d/container_cronjob \
     && crontab /etc/cron.d/container_cronjob \
     && cron
 
-echo "Starting server..."
+#echo "Starting server..."
 php artisan serve --host=0.0.0.0
 
 echo "Starting queue..."

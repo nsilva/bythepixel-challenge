@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +12,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::get('/', function () {
     return response()->json([
         'message' => 'all systems are a go',
         'users' => \App\Models\User::all(),
     ]);
 });
+Route::get('/users', [\App\Http\Controllers\Api\UserController::class, 'index'])->name('users.all');
+Route::get('/users/{user}/weather', [\App\Http\Controllers\Api\WeatherController::class, 'getByUserId'])->name('user.weather');
+
