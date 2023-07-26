@@ -10,7 +10,7 @@ export default {
 
   methods: {
     async fetchData() {
-      const url = 'http://localhost/'
+      const url = 'http://localhost:8000/users'
       this.apiResponse = await (await fetch(url)).json()
     }
   }
