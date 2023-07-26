@@ -31,7 +31,7 @@ const { usersList, selectedUser, serverError } = storeToRefs(main);
     {{ serverError }}
   </Toast>
   <div v-if="!usersList">Fetching users...</div>
-  <div v-if="usersList">
+  <div v-if="usersList" id="users-list">
     <div class="columns-3">
       <div v-for="user in usersList" :key="user.id" class="w-full">
         <user-card :user="user" @userSelected="handleUserSelect"></user-card>

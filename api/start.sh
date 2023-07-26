@@ -2,6 +2,8 @@
 
 set -Eeuo pipefail
 
+service apache2 restart
+
 composer install --optimize-autoloader \
     && php artisan cache:clear \
     && php artisan config:clear \
