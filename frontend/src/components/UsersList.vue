@@ -4,6 +4,7 @@ import { storeToRefs } from "pinia";
 import { useUsers } from "@/stores/users";
 import UserCard from "@/components/UserCard.vue";
 import WeatherModal from "@/components/modals/WeatherModal.vue";
+import { Toast } from "flowbite-vue";
 
 const main = useUsers();
 
@@ -22,10 +23,13 @@ const resetSelectedUser = (user: any) => {
   main.setSelectedUser(user);
 };
 
-const { usersList, selectedUser } = storeToRefs(main);
+const { usersList, selectedUser, serverError } = storeToRefs(main);
 </script>
 
 <template>
+  <Toast type="warning" v-if="serverError" closable class="absolute top-10 right-10 border-solid border-1 drop-shadow-md">
+    {{ serverError }}
+  </Toast>
   <div v-if="!usersList">Fetching users...</div>
   <div v-if="usersList">
     <div class="columns-3">

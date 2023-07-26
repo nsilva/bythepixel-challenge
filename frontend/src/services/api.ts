@@ -7,23 +7,13 @@ const api = axios.create({
 });
 
 export const fetchUsers = async () => {
-  try {
     const response = await api.get("users");
     return response.data;
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
 };
 
 export const fetchUserWeather = async (userId: number) => {
-  try {
-    const response = await api.get(`users/${userId}/weather`);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
+  const response = await api.get(`users/${userId}/weather`);
+  return response.data;
 };
 
 export default api;
