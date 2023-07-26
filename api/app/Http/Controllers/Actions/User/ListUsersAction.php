@@ -13,11 +13,11 @@ class ListUsersAction
     {
         $expire = Carbon::now()->addMinutes(15);
 
-        //return Cache::remember('users:all', $expire, function() {
+        return Cache::remember('users:all', $expire, function() {
             return User::query()
                 ->select(['users.id', 'name', 'temp'])
                 ->leftJoin('weather', 'users.id', '=', 'weather.user_id')
                 ->get();
-        //});
+        });
     }
 }
