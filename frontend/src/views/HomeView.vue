@@ -4,6 +4,8 @@ import UsersList from "@/components/UsersList.vue";
 
 <template>
   <main>
-    <users-list></users-list>
+    <div class="container mx-auto">
+      <users-list></users-list>
+    </div>
   </main>
 </template>
