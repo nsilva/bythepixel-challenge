@@ -17,8 +17,8 @@ cp crontab/cron /etc/cron.d/container_cronjob \
     && crontab /etc/cron.d/container_cronjob \
     && cron
 
-#echo "Starting server..."
-php artisan serve --host=0.0.0.0
+echo "Dispatching weather data request..."
+php artisan weather:update
 
 echo "Starting queue..."
 php artisan queue:work --tries=3
