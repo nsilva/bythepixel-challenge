@@ -46,7 +46,6 @@ class WeatherJob implements ShouldQueue
                 'description' => $data['weather'][0]['description'] ?? null,
                 'temp'        => $data['main']['temp'] ?? null,
                 'feels_like'  => $data['main']['feels_like'] ?? null,
-                'feels_like'  => $data['main']['feels_like'] ?? null,
                 'temp_max'    => $data['main']['temp_max'] ?? null,
                 'temp_min'    => $data['main']['temp_min'] ?? null,
                 'humidity'    => $data['main']['humidity'] ?? null,
