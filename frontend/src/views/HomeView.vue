@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import ApiTest from "@/components/ApiTest.vue";
+import UsersList from "@/components/UsersList.vue";
 </script>
 
 <template>
   <main>
-    <api-test></api-test>
+    <div class="container mx-auto">
+      <users-list></users-list>
+    </div>
   </main>
 </template>
