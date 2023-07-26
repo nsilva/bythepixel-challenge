@@ -19,7 +19,7 @@ export const fetchUsers = async () => {
 export const fetchUserWeather = async (userId: number) => {
   try {
     const response = await api.get(`users/${userId}/weather`);
-    return response.data.data;
+    return response.data;
   } catch (error) {
     console.log(error);
     return [];

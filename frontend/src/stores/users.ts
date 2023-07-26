@@ -9,14 +9,15 @@ export const useUsers = defineStore("users", {
   actions: {
     async fetchUsers() {
       this.usersList = await fetchUsers();
-      console.log(this.usersList)
+      console.log(this.usersList);
     },
     async getUserWeather() {
-      if (this.usersList) {
-        const weather = await fetchUserWeather(id);
-        console.log(weather);
+      if (this.selectedUser && !this.selectedUser.weather) {
+        const weather = await fetchUserWeather(this.selectedUser.id);
+        this.selectedUser.weather = weather;
+        
         const user = this.usersList.find((user: any) => {
-          return user.id === id;
+          return user.id === this.selectedUser.id;
         });
 
         if (user) {
@@ -26,6 +27,9 @@ export const useUsers = defineStore("users", {
     },
     setSelectedUser(user: any) {
       this.selectedUser = user;
+    },
+    resetSelectedUser(user: any) {
+      this.selectedUser = null;
     },
   },
   getters: {
