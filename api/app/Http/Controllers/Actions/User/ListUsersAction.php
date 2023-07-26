@@ -11,7 +11,7 @@ class ListUsersAction
 {
     public function handle(): Collection
     {
-        $expire = Carbon::now()->addSeconds(5);
+        $expire = Carbon::now()->addMinutes(15);
 
         //return Cache::remember('users:all', $expire, function() {
             return User::query()
